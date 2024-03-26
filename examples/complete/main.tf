@@ -18,7 +18,7 @@ resource "random_integer" "rand_int" {
 }
 
 module "resource_names" {
-  source = "git::https://github.com/nexient-llc/tf-module-resource_name.git?ref=1.0.0"
+  source = "git::https://github.com/launchbynttdata/tf-launch-module_library-resource_name.git?ref=1.0.0"
 
   for_each = var.resource_names_map
 
@@ -32,7 +32,7 @@ module "resource_names" {
 }
 
 module "resource_group" {
-  source = "git::https://github.com/nexient-llc/tf-azurerm-module_primitive-resource_group.git?ref=0.2.0"
+  source = "git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-resource_group.git?ref=1.0.0"
 
   name     = module.resource_names["rg"].standard
   location = var.region
@@ -42,7 +42,7 @@ module "resource_group" {
 }
 
 module "vnet" {
-  source = "git@github.com:nexient-llc/tf-azurerm-module_primitive-virtual_network.git?ref=feature/init"
+  source = "git@github.com:launchbynttdata/tf-azurerm-module_primitive-virtual_network.git?ref=1.0.0"
 
   vnet_location                                         = var.region
   resource_group_name                                   = module.resource_group.name
@@ -69,7 +69,7 @@ module "vnet" {
 }
 
 module "private_dns_zone" {
-  source = "git@github.com:nexient-llc/tf-azurerm-module_primitive-private_dns_zone.git?ref=feature/init"
+  source = "git@github.com:launchbynttdata/tf-azurerm-module_primitive-private_dns_zone.git?ref=1.0.0"
 
   resource_group_name = module.resource_group.name
   zone_name           = "example-${random_integer.rand_int.result}.com"
