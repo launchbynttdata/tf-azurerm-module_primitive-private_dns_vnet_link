@@ -42,7 +42,7 @@ module "resource_group" {
 }
 
 module "vnet" {
-  source = "git@github.com:launchbynttdata/tf-azurerm-module_primitive-virtual_network.git?ref=1.0.0"
+  source = "git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-virtual_network.git?ref=1.0.0"
 
   vnet_location                                         = var.region
   resource_group_name                                   = module.resource_group.name
@@ -69,7 +69,7 @@ module "vnet" {
 }
 
 module "private_dns_zone" {
-  source = "git@github.com:launchbynttdata/tf-azurerm-module_primitive-private_dns_zone.git?ref=1.0.0"
+  source = "git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-private_dns_zone.git?ref=1.0.0"
 
   resource_group_name = module.resource_group.name
   zone_name           = "example-${random_integer.rand_int.result}.com"
