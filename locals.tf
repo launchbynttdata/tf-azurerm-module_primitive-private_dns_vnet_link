@@ -10,12 +10,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-resource "azurerm_private_dns_zone_virtual_network_link" "vnet_link" {
-  name                  = var.link_name
-  resource_group_name   = var.resource_group_name
-  private_dns_zone_name = var.private_dns_zone_name
-  virtual_network_id    = var.virtual_network_id
-  registration_enabled  = var.registration_enabled
-
-  tags = local.tags
+locals {
+  default_tags = {
+    provisioner   = "terraform"
+    resource_name = var.link_name
+  }
+  tags = merge(local.default_tags, var.tags)
 }
