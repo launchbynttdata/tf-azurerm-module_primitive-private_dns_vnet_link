@@ -38,5 +38,5 @@ func TestVnetLinkModule(t *testing.T) {
 		}).
 		Build()
 
-	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestVnetLink)
+	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestComposableVnetLink)
 }
