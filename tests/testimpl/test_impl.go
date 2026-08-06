@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestVnetLink(t *testing.T, ctx types.TestContext) {
+func TestComposableVnetLink(t *testing.T, ctx types.TestContext) {
 
 	t.Run("TestVnetLink", func(t *testing.T) {
 		linkId := terraform.Output(t, ctx.TerratestTerraformOptions(), "vnet_link_id")
