@@ -83,7 +83,7 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------| :------: |
+|------|-------------|------|---------|:--------:|
 | <a name="input_link_name"></a> [link\_name](#input\_link\_name) | Name of the Network link | `string` | n/a | yes |
 | <a name="input_private_dns_zone_name"></a> [private\_dns\_zone\_name](#input\_private\_dns\_zone\_name) | Name of the Private DNS Zone | `string` | n/a | yes |
 | <a name="input_registration_enabled"></a> [registration\_enabled](#input\_registration\_enabled) | (Optional) Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to false. | `bool` | `false` | no |
