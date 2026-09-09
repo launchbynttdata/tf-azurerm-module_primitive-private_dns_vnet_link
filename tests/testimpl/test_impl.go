@@ -1,6 +1,7 @@
 package testimpl
 
 import (
+	"context"
 	"regexp"
 	"testing"
 
@@ -11,12 +12,12 @@ import (
 
 func TestComposableVnetLink(t *testing.T, ctx types.TestContext) {
 
-	t.Run("TestVnetLink", func(t *testing.T) {
-		linkId := terraform.Output(t, ctx.TerratestTerraformOptions(), "vnet_link_id")
-		dnsZoneId := terraform.Output(t, ctx.TerratestTerraformOptions(), "dns_zone_id")
-		resourceGroupId := terraform.Output(t, ctx.TerratestTerraformOptions(), "resource_group_id")
-		vnetId := terraform.Output(t, ctx.TerratestTerraformOptions(), "vnet_id")
-		dnsZoneName := terraform.Output(t, ctx.TerratestTerraformOptions(), "dns_zone_name")
+	t.Run("TestComposableVnetLink", func(t *testing.T) {
+		linkId := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "vnet_link_id")
+		dnsZoneId := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "dns_zone_id")
+		resourceGroupId := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "resource_group_id")
+		vnetId := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "vnet_id")
+		dnsZoneName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "dns_zone_name")
 
 		assert.NotEmpty(t, linkId, "ID must not be empty")
 		assert.NotEmpty(t, dnsZoneId, "DNS Zone ID must not be empty")
